@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<style>
+
+		.voituree {
+			border-radius: 10px 10px 10px;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+			padding: 10px 20px 30px;
+			color: #8d9db6;
+			background-color: #efeff5;
+
+		}
+	</style>
+
+	<h1 style="color:#034f84">Bienvenu dans VenteVoitures</h1>
+	<br>
+
+	{% for voiture in voitures %}
+		<section class="voituree">
+			<voiture>
+				<h4 style="color:#77a8a8">{{voiture.nom}}</h4>
+				<div class="metadata">
+					<span class="budge budge-danger" style="color:#4f4f7d">
+						{{voiture.marque.nom}}</span>
+				</div>
+
+				<div class="content">
+
+					<img src={{voiture.image}} alt="" width="1000">
+					<br><br>
+					<span class="d-inline-block text-truncate" style="max-width: 1000px;">
+						{{voiture.description}}
+					</span>
+				</voiture>
+				<a class="btn btn-info" href="{{path('voiture_show',{'id':voiture.id})}}">
+					plus de détails</a>
+				<a class="btn btn-info" href="{{path('voiture_new')}}">
+					New</a>
+			</section>
+		{% endfor %}
+	</tout>
+{% endblock %}

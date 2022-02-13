@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+{{ form_row(form.nom,{ 'attr': {'class': 'form-control','placeholder': 'Donnez le nom la marque !',} }) }}
+{{ form_row(form.description,{ 'attr': {'class': 'form-control','placeholder': 'Ecrire une description...'} }) }}
+<br>
+<button class="btn btn-outline-success btn-lg" padding: 15px 25px>{{ button_label|default('Sauvegarder') }}</button>
+
+{{ form_end(form) }}

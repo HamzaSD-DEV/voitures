@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Marques
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<h1>Liste des Marques</h1>
+
+		<table id="example" class="table table-striped" style="width:100%">
+			<thead>
+				<tr>
+					<th>Identifiant</th>
+					<th>Nom</th>
+					<th>Description</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for marque in marques %}
+				<div class="container">
+					<tr>
+						<td>{{ marque.id }}</td>
+						<td>{{ marque.nom }}</td>
+						<td>{{ marque.description }}</td>
+						<td>
+							<a href="{{ path('marque_show', {'id': marque.id}) }}" class="btn btn-outline-primary btn-lg btn-block"><i class="fa fa-desktop" aria-hidden="true"></i>Afficher</a>
+							<a href="{{ path('marque_edit', {'id': marque.id}) }}" class="btn btn-outline-warning btn-lg btn-block"><i class="fa fa-desktop" aria-hidden="true"></i>Modifier</a>
+						</td>
+					</tr>
+					</div>
+				{% else %}
+					<tr>
+						<td colspan="4">Pas de Marque</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+    <a href="{{ path('marque_new') }}"class="btn btn-outline-success btn-lg"> 
+    <i class="fa fa-plus-square" aria-hidden="false"></i>
+    Ajouter une Marque</a>
+    </div>
+{% endblock %}
